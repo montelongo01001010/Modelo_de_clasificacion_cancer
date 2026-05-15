@@ -135,7 +135,7 @@ class App(ctk.CTk):
             self.m = self.df.drop(columns=[self.target_col])
             self.y = self.df[self.target_col]
 
-            # 🔴 1. eliminar NaN en y
+            # 1. eliminar NaN en y
             mask = self.y.notna()
             self.m = self.m[mask]
             self.y = self.y[mask]
