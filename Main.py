@@ -140,10 +140,10 @@ class App(ctk.CTk):
             self.m = self.m[mask]
             self.y = self.y[mask]
 
-            # 🔴 2. convertir texto a numérico
+            # 2. convertir texto a numérico
             self.m = pd.get_dummies(self.m)
 
-            # 🔴 3. rellenar NaN en X
+            # 3. rellenar NaN en X
             self.m = self.m.fillna(self.m.mean())
 
             fig, ax = plt.subplots()
@@ -227,7 +227,7 @@ class App(ctk.CTk):
 
             acc = accuracy_score(y_test, pred)
 
-            # 🔵 MATRIZ DE CONFUSIÓN
+            # MATRIZ DE CONFUSIÓN
             fig, ax = plt.subplots()
             cm = confusion_matrix(y_test, pred)
             ax.imshow(cm, cmap="Blues")
@@ -242,7 +242,7 @@ class App(ctk.CTk):
             self.mostrar_grafica(fig, self.graph_frame_model)
             plt.close(fig)
 
-            # 🔵 REPORTE
+            # REPORTE
             report = classification_report(y_test, pred, output_dict=True)
 
             clases = list(report.keys())[:-3]
